@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Obfuscator>
+  <Var name="InPath" value="bin\Release" />
+  <Var name="OutPath" value="bin\Release\obfuscated" />
+  <Var name="LogFile" value="obj\Release\obfuscar-map.txt" />
+  <Var name="KeepPublicApi" value="true" />
+  <Var name="HidePrivateApi" value="true" />
+  <Var name="RenameProperties" value="true" />
+  <Var name="RenameEvents" value="true" />
+  <Var name="HideStrings" value="true" />
+  <AssemblySearchPath path="$(InPath)" />
+  <AssemblySearchPath path="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2" />
+  <AssemblySearchPath path="%S3DAssemblyDir%" />
+  <AssemblySearchPath path="%S3DSxsDir%" />
+
+  <Module file="$(InPath)\S3D.EquipmentPartArray.dll">
+    <SkipType name="S3D.EquipmentPartArray.ArrayPanel" />
+    <SkipType name="S3D.EquipmentPartArray.ArrayPanel/*" />
+  </Module>
+  <Module file="$(InPath)\YYB.Licensing.dll" />
+</Obfuscator>

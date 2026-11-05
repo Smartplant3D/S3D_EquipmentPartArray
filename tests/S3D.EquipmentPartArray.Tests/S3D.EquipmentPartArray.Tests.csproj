@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net462</TargetFramework><OutputType>Exe</OutputType><LangVersion>latest</LangVersion><GenerateAssemblyInfo>false</GenerateAssemblyInfo></PropertyGroup>
+  <ItemGroup><ProjectReference Include="../../src/S3D.EquipmentPartArray.Core/S3D.EquipmentPartArray.Core.csproj" /></ItemGroup>
+</Project>

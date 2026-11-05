@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework><OutputType>Library</OutputType><PlatformTarget>x86</PlatformTarget>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <UseWindowsForms>true</UseWindowsForms><GenerateAssemblyInfo>false</GenerateAssemblyInfo><LangVersion>latest</LangVersion>
+    <AssemblyName>S3D.EquipmentPartArray</AssemblyName><RootNamespace>S3D.EquipmentPartArray</RootNamespace>
+    <DefineConstants Condition="'$(EnableLicenseCheck)' != 'true'">$(DefineConstants);DISABLE_LICENSE_CHECK</DefineConstants>
+    <S3DInstallDir Condition="'$(S3DInstallDir)' == ''">C:\Program Files (x86)\Smart3D</S3DInstallDir>
+    <S3DAssemblyDir>$(S3DInstallDir)\Core\Container\Bin\Assemblies\Release</S3DAssemblyDir>
+    <S3DSxsDir>$(S3DInstallDir)\Core\Container\Bin\SxS\Intergraph</S3DSxsDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../S3D.EquipmentPartArray.Core/ArrayPlanner.cs" Link="Core/ArrayPlanner.cs" />
+    <Reference Include="CommonClient"><HintPath>$(S3DAssemblyDir)\CommonClient.dll</HintPath><Private>False</Private></Reference>
+    <Reference Include="CommonMiddle"><HintPath>$(S3DAssemblyDir)\CommonMiddle.dll</HintPath><Private>False</Private></Reference>
+    <Reference Include="EquipmentMiddle"><HintPath>$(S3DAssemblyDir)\EquipmentMiddle.dll</HintPath><Private>False</Private></Reference>
+    <Reference Include="ReferenceDataMiddle"><HintPath>$(S3DAssemblyDir)\ReferenceDataMiddle.dll</HintPath><Private>False</Private></Reference>
+    <Reference Include="Intergraph.CommonToolkit.Client"><HintPath>$(S3DSxsDir)\Intergraph.CommonToolkit.Client.dll</HintPath><Private>False</Private></Reference>
+    <Reference Include="YYB.Licensing"><HintPath>C:\Users\Payne\OneDrive\文档\Visual Studio 2022\Projects\Smart3D_Tools\YYB.Licensing\bin\Release\YYB.Licensing.dll</HintPath><Private>True</Private></Reference>
+    <Reference Include="System.Windows.Forms" /><Reference Include="System.Drawing" />
+  </ItemGroup>
+  <Target Name="ObfuscateReleaseOutput" AfterTargets="Build" Condition="'$(Configuration)' == 'Release' and '$(DesignTimeBuild)' != 'true' and '$(ObfuscateOnBuild)' != 'false'">
+    <Exec Command="dotnet tool restore" WorkingDirectory="$(MSBuildProjectDirectory)" />
+    <Exec Command="dotnet obfuscar.console obfuscar.xml" WorkingDirectory="$(MSBuildProjectDirectory)" EnvironmentVariables="S3DAssemblyDir=$(S3DAssemblyDir);S3DSxsDir=$(S3DSxsDir)" />
+  </Target>
+</Project>

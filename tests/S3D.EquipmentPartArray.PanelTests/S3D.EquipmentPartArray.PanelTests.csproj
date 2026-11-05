@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup><TargetFramework>net462</TargetFramework><OutputType>Exe</OutputType><PlatformTarget>x86</PlatformTarget><UseWindowsForms>true</UseWindowsForms><GenerateAssemblyInfo>false</GenerateAssemblyInfo><LangVersion>latest</LangVersion></PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../src/S3D.EquipmentPartArray/ArrayPanel.cs" Link="ArrayPanel.cs" />
+    <Compile Include="../../src/S3D.EquipmentPartArray.Core/ArrayPlanner.cs" Link="ArrayPlanner.cs" />
+  </ItemGroup>
+</Project>
